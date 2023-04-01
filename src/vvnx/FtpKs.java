@@ -6,8 +6,7 @@
  * 
  * 
 adb uninstall vvnx.FtpKs && \
-adb install out/target/product/generic_arm64/system/app/FtpKs/FtpKs.apk && \
-adb shell pm grant vvnx.FtpKs android.permission.ACCESS_FINE_LOCATION
+adb install out/target/product/generic_arm64/system/app/FtpKs/FtpKs.apk 
  */
 
 package vvnx.FtpKs;
@@ -36,6 +35,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import android.util.Log;
+
+import android.widget.Toast; 
 
 
 
@@ -72,7 +73,10 @@ public class FtpKs extends Activity {
 			    details += "\t\t" + file.getSize();
 			    details += "\t\t" + dateFormater.format(file.getTimestamp().getTime());*/
 			    Log.d(TAG, "details = "+details);
+			    afficheToast(details);
 			}
+
+			
 			
 			
         } catch (Exception e) {
@@ -151,6 +155,14 @@ public class FtpKs extends Activity {
 						}
 			    
 				}
+		}
+		
+		public void afficheToast(String message) {
+		    runOnUiThread (new Runnable() {
+				public void run() {
+				Toast.makeText(getApplicationContext(),"Hello toast" + message,Toast.LENGTH_SHORT).show(); 
+				}
+			});
 		}
 		
 }
