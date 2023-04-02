@@ -16,8 +16,8 @@
 
 <resources>
 
-    <string name="hello_activity_text_text">Hello, World!</string>
-    <string name="txt_btn_1">EKO</string>
-    <string name="txt_btn_2">FIP</string>
+    <string name="txt_btn_1">EKO mp3</string>
+    <string name="txt_btn_2">FIP mp3</string>
+    <string name="txt_btn_3">EKO ogg</string>
 
 </resources>

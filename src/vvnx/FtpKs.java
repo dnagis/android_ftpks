@@ -58,6 +58,7 @@ public class FtpKs extends Activity {
 		@Override
 		public void run() {
         try  {
+			String audio_files = "";
 			
 			ftpClient.connect("5.135.183.126", 21);
 			ftpClient.login("anonymous", "");
@@ -67,14 +68,21 @@ public class FtpKs extends Activity {
 			files = ftpClient.listFiles();
 			for (FTPFile file : files) {
 			    String details = file.getName();
-			    /*if (file.isDirectory()) {
-			        details = "[" + details + "]";
-			    }
-			    details += "\t\t" + file.getSize();
-			    details += "\t\t" + dateFormater.format(file.getTimestamp().getTime());*/
 			    Log.d(TAG, "details = "+details);
-			    afficheToast(details);
+			    
+			    if (Pattern.matches(".*mp3", details) || Pattern.matches(".*ogg", details)) {
+					Log.d(TAG, "Pattern.matches = YES"); 
+					audio_files += details;		 
+					audio_files += " ";	
+					}
+			    
+			    
+			    
+			    
+			    
 			}
+			Log.d(TAG, "audio_files = " + audio_files);
+			afficheToast(audio_files);
 
 			
 			
@@ -157,10 +165,27 @@ public class FtpKs extends Activity {
 				}
 		}
 		
+		public void ActionPressBouton_3(View v) {		
+		Log.d(TAG, "ActionPressBouton_3");
+				for (FTPFile file : files) {
+			    String details = file.getName();
+					if (!file.isDirectory()) {
+						Log.d(TAG, "details = " + details);
+						//https://www.javatpoint.com/java-regex
+						//EKO.*ogg --> . = anything * = un nombre de fois indeterminé
+						if (Pattern.matches("EKO.*ogg", details)) {
+							//Log.d(TAG, "Pattern.matches = YES"); 
+							DownloadFile(details);							 
+							}
+						}
+			    
+				}
+		}
+		
 		public void afficheToast(String message) {
 		    runOnUiThread (new Runnable() {
 				public void run() {
-				Toast.makeText(getApplicationContext(),"Hello toast" + message,Toast.LENGTH_SHORT).show(); 
+				Toast.makeText(getApplicationContext(), message,Toast.LENGTH_LONG).show(); 
 				}
 			});
 		}
