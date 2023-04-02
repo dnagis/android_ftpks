@@ -83,13 +83,13 @@ public class FtpKs extends Activity {
 			}
 			Log.d(TAG, "audio_files = " + audio_files);
 			afficheToast(audio_files);
-
-			
-			
-			
-        } catch (Exception e) {
+	
+			} catch (Exception e) {
             e.printStackTrace();
-        }
+            //Le plus simple pour affichage mais je doute d'avoir qqe chose d'informatif...
+            //https://stackoverflow.com/questions/1149703/how-can-i-convert-a-stack-trace-to-a-string
+            afficheToast(Log.getStackTraceString(e));
+			}
 		}
 		});
  
