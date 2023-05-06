@@ -139,7 +139,7 @@ public class FtpKs extends Activity {
 						Log.d(TAG, "details = " + details);
 						//https://www.javatpoint.com/java-regex
 						//EKO.*mp3 --> . = anything * = un nombre de fois indeterminé
-						if (Pattern.matches("EKO.*mp3", details)) {
+						if (Pattern.matches("FIP.*ogg", details)) {
 							//Log.d(TAG, "Pattern.matches = YES"); 
 							DownloadFile(details);							 
 							}
