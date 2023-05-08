@@ -17,7 +17,7 @@
 <resources>
 
     <string name="txt_btn_1">FIP ogg</string>
-    <string name="txt_btn_2">FIP mp3</string>
+    <string name="txt_btn_2">ELECTRO ogg</string>
     <string name="txt_btn_3">EKO ogg</string>
 
 </resources>
