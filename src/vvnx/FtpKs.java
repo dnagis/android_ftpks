@@ -62,6 +62,9 @@ public class FtpKs extends Activity {
 			
 			ftpClient.connect("5.135.183.126", 21);
 			ftpClient.login("anonymous", "");
+			//Pas intuitif: par défaut le type est ASCII et sur des audio files ça donne des micro coupures très régulières et très chiantes
+			ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+			
 			Log.d(TAG, "status  :: " + ftpClient.getStatus()); 
 			
 			// lists files and directories in the current working directory https://www.codejava.net/java-se/ftp/java-ftp-list-files-and-directories-example
@@ -75,9 +78,6 @@ public class FtpKs extends Activity {
 					audio_files += details;		 
 					audio_files += " ";	
 					}
-			    
-			    
-			    
 			    
 			    
 			}
@@ -107,8 +107,7 @@ public class FtpKs extends Activity {
         Thread dwnldThread = new Thread(new Runnable() {
 		@Override
 		public void run() {
-			
-			
+		
 			
 			
 			File dest_file = new File(Environment.getExternalStorageDirectory() + "/Music/" + ks_file);
@@ -119,10 +118,6 @@ public class FtpKs extends Activity {
 				} catch (IOException ex) {
             Log.d(TAG, "Error: " + ex.getMessage());
 				}
-
-
-
-
 
 
 		}
