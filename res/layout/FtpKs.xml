@@ -31,7 +31,13 @@
      android:onClick="ActionPressBouton_3" />
      
 
-     
+     <ProgressBar
+         android:id="@+id/progBar1"
+         android:layout_below="@+id/btn_3"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         style="@android:style/Widget.ProgressBar.Horizontal"
+         android:layout_marginRight="15dp" />
 
 
 </RelativeLayout> 
