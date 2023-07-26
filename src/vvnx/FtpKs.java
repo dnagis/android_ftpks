@@ -195,7 +195,7 @@ public class FtpKs extends Activity {
 					if (!file.isDirectory()) {
 						//https://www.javatpoint.com/java-regex
 						//EKO.*ogg --> . = anything * = un nombre de fois indeterminé
-						if (Pattern.matches("EKO.*ogg", fileName)) {
+						if (Pattern.matches("EKO.*mp3", fileName)) {
 							fileSize = file.getSize();
 							Log.d(TAG, "Pattern.matches = YES Name = " + fileName + " size=" + fileSize);
 							DownloadFile(fileName);								 
